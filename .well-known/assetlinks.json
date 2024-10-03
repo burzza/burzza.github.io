@@ -1,9 +1,11 @@
-[{
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.example.deeplink_cookbook",
-      "sha256_cert_fingerprints":
-      ["FF:2A:CF:7B:DD:CC:F1:03:3E:E8:B2:27:7C:A2:E3:3C:DE:13:DB:AC:8E:EB:3A:B9:72:A1:0E:26:8A:F5:EC:AF"]
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.asparksys.laskclient",
+        "sha256_cert_fingerprints":
+          ["FD:8B:25:34:B5:22:5D:E1:D0:5D:DD:53:4C:EA:8D:9D:4E:2E:3C:F9:21:46:E1:D0:14:B3:D7:FA:92:3D:92:37"]
+      }
     }
-  }]
+  ]
