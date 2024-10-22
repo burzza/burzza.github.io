@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Job Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
 </head>
 <body>
-  <h1>Job Details</h1>
-  <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to the Play Store to install it.</p>
+    <h1>Job Details</h1>
+    <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to the Play Store to install it.</p>
 
-  <!-- Button to trigger link -->
-  <a href="#" id="openApp">Open Job</a>
+    <!-- Button to trigger link -->
+    <a href="#" id="openApp">Open Job</a>
 
-  <script>
-    document.getElementById("openApp").addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent default link behavior
+    <script>
+        // Function to simulate job validation (you can customize this)
+        function isValidJob(slug) {
+            // Example valid slugs array (you can replace this with an API call or a more complex validation)
+            const validJobs = ['test-new-job', 'another-job', 'example-job']; // Add valid slugs here
+            return validJobs.includes(slug);
+        }
 
-      // Extract the dynamic slug from the URL
-      const currentUrl = window.location.href;
-      console.log('Current URL:', currentUrl); // Log the full URL
+        // Extract the slug from the URL
+        const currentUrl = window.location.href;
+        const slug = currentUrl.split('/jobs/')[1]; // Extract slug from URL path
 
-      // Split the URL to get the slug
-      const slug = currentUrl.split('/jobs/')[1]; // Extract slug from URL path
-      console.log('Extracted Slug:', slug); // Log the slug for debugging
-      
-      // If no slug is found, handle the case accordingly
-      if (!slug) {
-        alert('No job found!');
-        return;
-      }
+        // Check if the slug is valid
+        if (!slug || !isValidJob(slug)) {
+            // Redirect to Play Store if the slug is invalid or not provided
+            window.location.href = "https://play.google.com/store/apps/details?id=com.burzza.app";
+        } else {
+            // Log the slug for debugging
+            console.log('Extracted Slug:', slug);
 
-      // Construct the deep link URL
-    //   const deepLinkUrl = `burzzaapp://jobs/${slug}`; // Custom deep link
-      // Uncomment the next line if you want to redirect to the web URL instead
-      const deepLinkUrl = `https://burzza.github.io/jobs/${slug}`; // If you want to use the web URL
+            // Set up click event for the button
+            document.getElementById("openApp").addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
 
-      // Try to open the app with the deep link
-      window.location = deepLinkUrl;
+                // Construct the deep link URL
+                const deepLinkUrl = `https://burzza.github.io/jobs/${slug}`; // Custom deep link
 
-      // Optional: Redirect to the Play Store after a delay if needed
-      setTimeout(function() {
-        window.location = "https://play.google.com/store/apps/details?id=com.burzza.app";
-      }, 2000);
-    });
-  </script>
+                // Try to open the app with the deep link
+                window.location = deepLinkUrl;
+
+                // Optional: Redirect to the Play Store after a delay if needed
+                setTimeout(function() {
+                    window.location = "https://play.google.com/store/apps/details?id=com.burzza.app";
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
