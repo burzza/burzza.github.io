@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Open Job in My App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Burzza App</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
 </head>
 <body>
-  <h1>Open Job in My App</h1>
-  <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to the Play Store to install it.</p>
+    <header>
+        <h1>Welcome to Burzza App</h1>
+        <nav>
+            <ul>
+                <li><a href="/jobs/">Jobs</a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Button to trigger deep link -->
-  <a href="#" id="openApp">Open Job</a>
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Welcome to the Burzza app, where you can find job listings and more!</p>
+        </section>
 
-  <script>
-    document.getElementById("openApp").addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent default link behavior
+        <section>
+            <h2>Get Started</h2>
+            <p>Check out our <a href="/jobs/">job listings</a> or download our app for the best experience.</p>
+        </section>
+    </main>
 
-      // Extract the dynamic slug from the URL
-      const currentUrl = window.location.href;
-      const slug = currentUrl.split('/jobs/')[1]; // Extract slug from URL path
-      
-      // If no slug is found, handle the case accordingly
-      if (!slug) {
-        alert('No job found!');
-        return;
-      }
-
-      // Construct the deep link URL with the slug
-      const deepLinkUrl = `https://burzza.github.io/jobs/${slug}`;
-
-      // Try to open the app with the deep link
-      window.location = deepLinkUrl;
-
-      // If the app isn't installed, redirect to the Play Store after a delay
-      setTimeout(function() {
-        window.location = "https://play.google.com/store/apps/details?id=com.burzza.app";
-      }, 2000);
-    });
-  </script>
+    <footer>
+        <p>&copy; 2024 Burzza. All rights reserved.</p>
+    </footer>
 </body>
 </html>
