@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Open Job in My App</title>
+  <title>Job Details</title>
 </head>
 <body>
-  <h1>Open Job in My App</h1>
+  <h1>Job Details</h1>
   <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to the Play Store to install it.</p>
 
-  <!-- Button to trigger deep link -->
+  <!-- Button to trigger link -->
   <a href="#" id="openApp">Open Job</a>
 
   <script>
@@ -19,7 +19,11 @@
 
       // Extract the dynamic slug from the URL
       const currentUrl = window.location.href;
+      console.log('Current URL:', currentUrl); // Log the full URL
+
+      // Split the URL to get the slug
       const slug = currentUrl.split('/jobs/')[1]; // Extract slug from URL path
+      console.log('Extracted Slug:', slug); // Log the slug for debugging
       
       // If no slug is found, handle the case accordingly
       if (!slug) {
@@ -27,13 +31,15 @@
         return;
       }
 
-      // Construct the deep link URL with the slug
-      const deepLinkUrl = `https://burzza.github.io/jobs/${slug}`;
+      // Construct the deep link URL
+    //   const deepLinkUrl = `burzzaapp://jobs/${slug}`; // Custom deep link
+      // Uncomment the next line if you want to redirect to the web URL instead
+      const deepLinkUrl = `https://burzza.github.io/jobs/${slug}`; // If you want to use the web URL
 
       // Try to open the app with the deep link
       window.location = deepLinkUrl;
 
-      // If the app isn't installed, redirect to the Play Store after a delay
+      // Optional: Redirect to the Play Store after a delay if needed
       setTimeout(function() {
         window.location = "https://play.google.com/store/apps/details?id=com.burzza.app";
       }, 2000);
