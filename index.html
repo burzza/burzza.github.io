@@ -3,34 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Burzza App</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to your CSS file -->
+    <title>Binesh Burja Magar | Portfolio</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        /* Navbar */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, #0066cc, #003366);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        /* About Section */
+        .about, .projects, .contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about h2, .projects h2, .contact h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .about p {
+            max-width: 600px;
+            margin: auto;
+        }
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        /* Contact Section */
+        .contact form {
+            max-width: 500px;
+            margin: auto;
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .contact button {
+            background: #0066cc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact button:hover {
+            background: #003366;
+        }
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navbar -->
     <header>
-        <h1>Welcome to Burzza App</h1>
         <nav>
             <ul>
-                <li><a href="/jobs/">Jobs</a></li>
-                <!-- Add other navigation links here -->
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>Welcome to the Burzza app, where you can find job listings and more!</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Hello, I'm Binesh Burja Magar</h1>
+            <p>Flutter Developer | Data Science Enthusiast</p>
+        </div>
+    </section>
 
-        <section>
-            <h2>Get Started</h2>
-            <p>Check out our <a href="/jobs/">job listings</a> or download our app for the best experience.</p>
-        </section>
-    </main>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>I'm a skilled Flutter developer with a passion for creating intuitive and responsive mobile applications. I have a strong interest in data science and am always looking to expand my knowledge in app development and analytics.</p>
+    </section>
 
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Lask Client</h3>
+                <p>An app that connects clients with lawyers for consultations, with Stripe-integrated billing.</p>
+            </div>
+            <div class="project-card">
+                <h3>Lask Lawyer</h3>
+                <p>Lawyer-focused app enabling lawyers to manage client calls and communication seamlessly.</p>
+            </div>
+            <div class="project-card">
+                <h3>MAW JCB Sales</h3>
+                <p>App for salespeople to manage visits, contacts, and product information efficiently.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Burzza. All rights reserved.</p>
+        <p>&copy; 2024 Binesh Burja Magar | All Rights Reserved</p>
     </footer>
+
 </body>
 </html>
